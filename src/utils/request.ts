@@ -1,9 +1,10 @@
 import axios, { type AxiosError, type AxiosRequestConfig, type AxiosResponse } from 'axios'
 import config from '@/config'
+import { API_BASE_URL, MOCK_ENABLED } from '@/config'
 import { _notice } from './index'
 
 export const axiosInstance = axios.create({
-  baseURL: config.baseUrl,
+  baseURL: MOCK_ENABLED ? config.baseUrl : API_BASE_URL,
   timeout: 60000
 })
 

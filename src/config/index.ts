@@ -18,3 +18,8 @@ export const BASE_URL = BASE_URL_MAP[import.meta.env.VITE_ENV]
 export const IMG_URL = BASE_URL + '/images/'
 export const FILE_URL = BASE_URL + '/data/'
 export const IS_DEV = process.env.NODE_ENV !== 'production'
+
+// API 配置
+export const MOCK_ENABLED = import.meta.env.VITE_MOCK_ENABLED === 'true'
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api'
+export const RESOURCE_BASE_URL = import.meta.env.VITE_RESOURCE_BASE_URL || '/data'

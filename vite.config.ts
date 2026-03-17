@@ -171,6 +171,12 @@ export default defineConfig((): Promise<UserConfig> => {
           host: '0.0.0.0',
           fs: {
             strict: false
+          },
+          proxy: {
+            '/api': {
+              target: 'http://localhost:3001',
+              changeOrigin: true
+            }
           }
         },
         preview: {

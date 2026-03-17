@@ -1,0 +1,21 @@
+app:
+  mode: web
+  port: 3001
+  host: localhost
+
+database:
+  type: sqlite
+  path: data/douyin.db
+
+mock:
+  enabled: true
+  mockPaths: []
+
+resource:
+  mode: hybrid
+  baseUrl: ''
+  localPath: ./public/data
+  remoteUrl: https://dy.ttentau.top
+
+logging:
+  level: debug

@@ -1,13 +1,13 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import './assets/less/index.less'
-import { startMock } from '@/mock'
 import router from './router'
 import mixin from './utils/mixin'
 import VueLazyload from '@jambonn/vue-lazyload'
 import { createPinia } from 'pinia'
 import { useClick } from '@/utils/hooks/useClick'
 import bus, { EVENT_KEY } from '@/utils/bus'
+import { MOCK_ENABLED } from '@/config'
 
 window.isMoved = false
 window.isMuted = true
@@ -49,8 +49,13 @@ app.use(router)
 app.mount('#app')
 app.directive('click', vClick)
 
-//放到最后才可以使用pinia
-startMock()
+if (MOCK_ENABLED) {
+  import('@/mock').then(({ startMock }) => {
+    startMock()
+    console.log('[Mock] 已启用 Mock 模式')
+  })
+}
+
 setTimeout(() => {
   bus.emit(EVENT_KEY.HIDE_MUTED_NOTICE)
   window.showMutedNotice = false

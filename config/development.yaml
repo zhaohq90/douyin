@@ -1,0 +1,12 @@
+app:
+  mode: web
+  port: 3001
+
+mock:
+  enabled: true
+
+resource:
+  mode: hybrid
+
+logging:
+  level: debug
